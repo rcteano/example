@@ -1,0 +1,49 @@
+<h1>This is a sample route....</h1>
+
+<br>
+<hr>
+<br>
+<!-- Default Compose
+	This composition overrides the html provided once loaded.
+-->
+<div data-bind="compose: { model: 'viewmodels/templates/message', activationData: testData }">
+	<h2>Loading....</h2>
+</div>
+<br>
+<!-- Inline Compose 
+	This composition uses only the js part of the model and applies the bindings on the html provided.
+ -->
+<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'inline', activationData: testData }">
+	<strong data-bind="text: message"></strong>
+</div>
+<br>
+<!-- Templated Compose 
+	This composition uses only the js part of the model and applies the bindings on the html provided.
+ -->
+<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'templated', activationData: testData }">
+	<h3 data-part="testPartttt">This is an override for the test part.</h3>
+</div>
+
+<!-- Compose but use only js -->
+<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'inline', activationData: testData }">
+	<strong data-bind="text: message"></strong>
+</div>
+<br>
+
+<!-- One way html binding -->
+<h2 data-bind="html: htmlMessage"></h2>
+<h2 data-bind="text: htmlMessage"></h2>
+<!-- One way binding -->
+<h3 data-bind="text: message"></h3>
+<!-- Two way binding -->
+<input data-bind="value: newMessage" type="text" />
+<!-- Another Two way binding -->
+<input data-bind="textInput: newMessage" type="text" />
+<br />
+<br />
+<!-- Trigger -->
+<button data-bind="click: changeMessage" class="btn btn-primary">Click me!</button>
+
+<br>
+<br>
+
