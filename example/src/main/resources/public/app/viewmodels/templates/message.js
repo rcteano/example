@@ -1,18 +1,25 @@
 define(['knockout'], function (ko) {
     var Message = function() {
-    	this.message = null;
+    	this.message = ko.observable();
+    	
+    	this.onDoSomething = null;
+    	this.oneTimeBindMessage = 'one time on message.js';
     };
     
     Message.prototype.activate = function(data) {
     	var self = this;
-    	
-    	self.message = data.message;
+
+    	self.message = data.testMessage;
+    	self.onDoSomething = data.testFunction;
     };
     
     Message.prototype.changeMessage = function() {
     	var self = this;
     	
-    	self.message('External Message');
+    	if(self.onDoSomething) {
+    		self.onDoSomething();
+    	}
+    	//self.message('External Message');
     };
     
     return Message;

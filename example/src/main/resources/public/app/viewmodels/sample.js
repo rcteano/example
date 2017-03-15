@@ -4,15 +4,14 @@ define(['knockout'], function (ko) {
     	this.htmlMessage = ko.observable();
     	this.newMessage = ko.observable('Default new message');
     	
-    	this.testData = {
-			message: ko.observable('Hi rica!')
-    	};
+		this.testMessage = ko.observable('Hi rica!');
+		this.oneTimeBindMessage = 'Hello one time';
     };
     
     Sample.prototype.activate = function() {
     	var self = this;
     	
-    	self.testData.message.subscribe(function(newMessage) {
+    	self.testMessage.subscribe(function(newMessage) {
     		self.htmlMessage(newMessage);
     	});
     	
@@ -24,6 +23,12 @@ define(['knockout'], function (ko) {
     	var self = this;
     	
     	self.message(self.newMessage());
+    };
+    
+    Sample.prototype.doSomething = function() {
+    	var self = this;
+    	
+    	alert('Im at sample.js Find me!!!' + self.oneTimeBindMessage);
     };
     
     return Sample;

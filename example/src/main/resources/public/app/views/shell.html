@@ -16,21 +16,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
 				<div data-bind="foreach: router.navigationModel">
 					<ul class="nav navbar-nav">
-						<!-- ko if: $data.childRoutes === undefined && $data.parent === undefined -->
 						<li data-bind="css: { active: isActive }">
 		                    <a data-bind="attr: { href: hash }, html: title"></a>
 		                </li>
-						<!-- /ko -->
-						<!-- ko if: $data.childRoutes !== undefined -->
-						<li class="dropdown">
-		        			<a data-toggle="dropdown" class="dropdown-toggle" href="#"><span data-bind="text: title"></span><b class="caret"></b></a>
-		        			<ul data-bind="foreach: childRoutes" role="menu" class="dropdown-menu">
-		        				<li data-bind="css: { active: isActive }">
-		        					<a data-bind="attr: { href: hash }, html: title"></a>
-		        				</li>
-		        			</ul>
-		        		</li>
-			        	<!-- /ko -->
 		        	</ul>
 	        	</div>
 	        </div>

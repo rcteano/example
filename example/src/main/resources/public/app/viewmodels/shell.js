@@ -19,19 +19,6 @@ define(['plugins/router', 'durandal/app', 'knockout'],
 		
 		self.routes = self.routes.concat(sampleroute);
 		
-    	$.each(self.routes, function(index, route) {
-            if (route.childRoutes === undefined)
-                return
-            $.each(route.childRoutes, function(index, childRoute) {
-                childRoute.route = route.route + '/' + childRoute.route;
-                childRoute.moduleId = route.moduleRootId + '/' + childRoute.moduleId;
-                childRoute.title = childRoute.title;
-                childRoute.hash = route.hash + '/' + childRoute.hash;
-                childRoute.parent = route.moduleRootId;
-            });
-            self.routes = self.routes.concat(route.childRoutes);
-        });
-    	
         self.router.map(self.routes)
         	.buildNavigationModel()
         	.mapUnknownRoutes('viewmodels/error');

@@ -6,33 +6,41 @@
 <!-- Default Compose
 	This composition overrides the html provided once loaded.
 -->
-<div data-bind="compose: { model: 'viewmodels/templates/message', activationData: testData }">
+<div data-bind="compose: { model: 'viewmodels/templates/message', activationData: { testMessage: testMessage } }">
 	<h2>Loading....</h2>
 </div>
+<hr>
 <br>
+
 <!-- Inline Compose 
 	This composition uses only the js part of the model and applies the bindings on the html provided.
  -->
-<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'inline', activationData: testData }">
+<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'inline', activationData: { testMessage: testMessage } }">
 	<strong data-bind="text: message"></strong>
 </div>
 <br>
+<hr>
+
 <!-- Templated Compose 
 	This composition uses only the js part of the model and applies the bindings on the html provided.
  -->
-<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'templated', activationData: testData }">
+<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'templated', activationData: { testMessage: testMessage, testFunction: doSomething } }">
 	<h3 data-part="testPartttt">This is an override for the test part.</h3>
 </div>
+<hr>
 
 <!-- Compose but use only js -->
-<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'inline', activationData: testData }">
+<div data-bind="compose: { model: 'viewmodels/templates/message', mode: 'inline', activationData: { testMessage: testMessage } }">
 	<strong data-bind="text: message"></strong>
 </div>
 <br>
+<hr>
 
 <!-- One way html binding -->
 <h2 data-bind="html: htmlMessage"></h2>
 <h2 data-bind="text: htmlMessage"></h2>
+<!-- One time binding notice that oneTimeBindMessage is not declared as a ko.observable() if the value on the view model changes the text on the view does not -->
+<h1 data-bind="text: oneTimeBindMessage"></h1>
 <!-- One way binding -->
 <h3 data-bind="text: message"></h3>
 <!-- Two way binding -->
